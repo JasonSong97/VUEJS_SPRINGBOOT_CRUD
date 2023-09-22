@@ -19,6 +19,7 @@
     
         <div class="col" v-for="(item, idx) in state.items" :key="idx">
           {{ item }}
+          <Card :item="item"/>
         </div>
 
       </div>
@@ -30,18 +31,19 @@
 <script>
 import axios from "axios"; // 통신을 위한 라이브러리
 import { reactive } from "vue";
+import Card from "@/components/Card";
 
 export default {
      name: "Home",
-     components: {},
+     components: {Card},
      setup(){
       const state = reactive({
         items: []
       })
 
-      axios.get("/api/items").then((res) => {
-        state.items = res.data; // state의 items에 내용 담기
-      })
+      axios.get("/api/items").then(({data}) => {
+        state.items = data; // state의 items에 내용 담기
+      });
 
       return {state}
      }
