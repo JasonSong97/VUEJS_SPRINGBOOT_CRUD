@@ -5,11 +5,10 @@
           <div class="card-body">
           <p class="card-text">{{ item.name }}</p>
           <div class="d-flex justify-content-between align-items-center">
-               <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-               </div>
-               <small class="text-body-secondary">9 mins</small>
+               <button class="btn btn-primary">구입하기</button> 
+               <small class="text-body-secondary">
+                    {{ item.price }} 원
+               </small>
           </div>
           </div>
      </div>
