@@ -3,10 +3,6 @@ module.exports = {
       proxy: {
           '/api': {
               target: 'http://localhost:8080', // 경로 우회!
-              changeOrigin: true,
-              pathRewrite: {
-                  '^/': ''
-              }
           }
       }
   }
