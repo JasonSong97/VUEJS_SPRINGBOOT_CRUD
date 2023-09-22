@@ -36,7 +36,9 @@ export default {
      name: "Home",
      components: {Card},
      setup(){
-      axios.get
+      axios.get("/api/items").then((res) => {
+        console.log(res);
+      })
      }
 }
 </script>
