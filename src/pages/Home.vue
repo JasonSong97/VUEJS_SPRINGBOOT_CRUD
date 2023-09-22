@@ -30,9 +30,14 @@
 
 <script>
 import Card from "@/components/Card";
+import axios from "axios";
+
 export default {
      name: "Home",
-     components: {Card}
+     components: {Card},
+     setup(){
+      axios.get
+     }
 }
 </script>
 
