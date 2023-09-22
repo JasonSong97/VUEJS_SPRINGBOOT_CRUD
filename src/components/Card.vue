@@ -16,7 +16,7 @@
 
 <script>
 export default {
-     name: "Card"
+     name: "Card" // 헤더로 지정
 }
 </script>
 

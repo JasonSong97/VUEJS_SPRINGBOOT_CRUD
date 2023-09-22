@@ -15,12 +15,10 @@
 
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     
         <div class="col" v-for="(item, idx) in state.items" :key="idx">
           {{ item }}
-          <Card/>
         </div>
 
       </div>
@@ -30,7 +28,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"; // 통신을 위한 라이브러리
 import { reactive } from "vue";
 
 export default {
@@ -42,7 +40,7 @@ export default {
       })
 
       axios.get("/api/items").then((res) => {
-        state.items = res.data;
+        state.items = res.data; // state의 items에 내용 담기
       })
 
       return {state}

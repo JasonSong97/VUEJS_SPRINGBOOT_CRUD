@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer' // 이름을 Footer로 지정
 }
 </script>
 
