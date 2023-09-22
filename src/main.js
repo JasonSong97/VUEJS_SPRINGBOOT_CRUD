@@ -2,10 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from "@/pages/Home";
+import Login from "@/pages/Login";
 
 const routes = [
      // / 경로로 오면 Home으로 보냄
-     {path:'/', component: Home}
+     {path:'/', component: Home},
+     {path:'/login', component: Login}
 ]
 
 const router = createRouter({
