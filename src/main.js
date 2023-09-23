@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import store from "@/scripts/store"
 import App from './App.vue'
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from "@/pages/Home";
@@ -16,5 +17,6 @@ const router = createRouter({
      routes
 })
 
-createApp(App).use(router).mount('#app') // 라우터를 사용함
+// store(vuex)사용한다는 것
+createApp(App).use(store).use(router).mount('#app') // 라우터를 사용함
  
