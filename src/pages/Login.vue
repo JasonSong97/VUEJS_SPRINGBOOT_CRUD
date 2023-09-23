@@ -43,9 +43,12 @@ export default {
       axios.post("/api/account/login", state.form).then((res) => {
         // 백엔드로 부터 받아온 데이터를 store(vuex)에 저장
         store.commit("setAccount", res.data);
+        sessionStorage.setItem('id', res.data); // 세션스토리지에 데이터 저장
         router.push({path:"/"});
         window.alert("로그인이 되었습니다.");
-      })
+      }).catch(() => {
+        window.alert("로그인정보가 존재하지 않습니다.");
+      });
     }
 
     return {state, submit}
