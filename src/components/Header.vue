@@ -41,6 +41,7 @@ export default {
   setup() {
     const logout = () => {
       store.commit("setAccount", 0);
+      sessionStorage.removeItem('id'); // 세션스토리지 제거
       router.push({path:"/"});
 
     }
