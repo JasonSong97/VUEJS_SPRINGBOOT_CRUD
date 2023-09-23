@@ -1,6 +1,7 @@
 <template>
   <Header/>
-  <RouterView/>
+  <!--같은 dept에 있으면 import 할 필요 없음-->
+  <RouterView/> 
   <Footer/>
 </template>
 

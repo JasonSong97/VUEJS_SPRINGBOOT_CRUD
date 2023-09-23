@@ -28,13 +28,13 @@
 import lib from "@/scripts/lib";
 
 export default {
-     name: "Card", // 헤더로 지정
+     name: "Card", // 컴포넌트 헤더로 지정
      props:{
-          item: Object
+          item: Object // item을 Object로 지정
      },
 
      setup(){
-          return {lib}
+          return {lib} // getNumberFormatted 호출
      }
 }
 </script>

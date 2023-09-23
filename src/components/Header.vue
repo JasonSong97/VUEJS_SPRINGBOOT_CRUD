@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: 'Header' // 이름을 헤더로 지정
+  name: 'Header' // 컴포넌트 이름을 헤더로 지정
 }
 </script>
 
