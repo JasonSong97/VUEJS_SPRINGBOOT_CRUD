@@ -1,6 +1,5 @@
 <template>
   <div class="form-signin w-100 m-auto">
-  <form>
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="state.form.email">
@@ -10,33 +9,42 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="state.form.password">
       <label for="floatingPassword">Password</label>
     </div>
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" @click="submit()">Sign in</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-  </form>
-</div>
+  </div>
 </template>
 
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+import {reactive} from "vue";
 
 export default {
   setup(){
     // 반응형 선언
     const state = reactive({
-      form: {
+      form :{
         email: "",
         password: ""
       }
     })
 
-    return {state}
+    // @click 이벤트 발동 시
+    // state.form 에서 받은 내용
+    const submit = () => {
+      // 데이터를 전송
+      axios.post("/api/account/login", state.form).then((res) => {
+        console.log(res);
+        window.alert("로그인이 되었습니다.");
+      })
+    }
+
+    return {state, submit}
   }
 }
 </script>
