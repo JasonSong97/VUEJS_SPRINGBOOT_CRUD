@@ -21,6 +21,7 @@
 
 
 <script>
+import router from "@/scripts/router";
 import store from "@/scripts/store";
 import axios from "axios";
 import {reactive} from "vue";
@@ -42,6 +43,7 @@ export default {
       axios.post("/api/account/login", state.form).then((res) => {
         // 백엔드로 부터 받아온 데이터를 store(vuex)에 저장
         store.commit("setAccount", res.data);
+        router.push({path:"/"});
         window.alert("로그인이 되었습니다.");
       })
     }
