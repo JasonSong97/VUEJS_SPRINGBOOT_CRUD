@@ -47,14 +47,17 @@
 <script>
 import store from '@/scripts/store';
 import router from '@/scripts/router';
+import axios from 'axios';
 
 export default {
   name: 'Header', // 컴포넌트 이름을 헤더로 지정
   setup() {
     const logout = () => {
-      store.commit("setAccount", 0); // setAccount 호출
-      sessionStorage.removeItem('id'); // 세션스토리지 제거
-      router.push({ path: "/" });
+      axios.post("/api/account/logout").then(() => {
+        store.commit("setAccount", 0); // setAccount 호출
+        router.push({ path: "/" });
+      })
+
     }
 
     return { logout };
