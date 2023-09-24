@@ -6,7 +6,7 @@
           <img :src="i.imgPath"/>
           <span class="name">{{ i.name }}</span>
           <span class="price">{{ lib.getNumberFormatted(i.price - i.price * i.discountPer / 100) }}원</span>
-          <i class="fa fa-trash"></i>
+          <i class="fa fa-trash" @click="removeCart(i.id)"></i>
         </li>
       </ul>
     </div>>
@@ -24,12 +24,22 @@ export default {
       items:[]
     })
 
-    axios.get("/api/cart/items").then(({data}) => {
+    const load = () => {
+      axios.get("/api/cart/items").then(({data}) => {
         console.log(data);
         state.items = data;
-    })
+      })
+    }
+    
+    const removeCart = (itemId) => {
+      axios.delete(`/api/cart/items/${itemId}`).then(() => {
+        load(); // delete 된 후에 load로 이동
+      })
+    }
 
-    return {state, lib}
+    load();
+
+    return {state, lib, removeCart}
   }
 }
 </script>
