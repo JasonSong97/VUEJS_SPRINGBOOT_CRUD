@@ -5,15 +5,13 @@
 </template>
 
 <script>
-import {reactive} from "vue";
+import axios from "axios";
 
 export default {
   setup(){
-    // 반응형 선언
-    const state = reactive({
+    axios.get("/api/cart/items").then(({data}) => {
+        console.log(data);
     })
-
-    return {state}
   }
 }
 </script>
