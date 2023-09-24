@@ -8,7 +8,8 @@ const routes = [
      {path:'/', component: Home},
      // /login 경로로 오면 Login으로 보냄
      {path:'/login', component: Login},
-     {path:'/cart', component: Cart}
+     {path:'/cart', component: Cart},
+     {path:'/order', component: Order}
 ]
 
 // 라우터 생성

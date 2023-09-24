@@ -10,9 +10,9 @@
         </li>
       </ul>
 
-      <button class="btn btn-primary">
+      <router-link to="/order" class="btn btn-primary">
         구입하기
-      </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -82,6 +82,7 @@ export default {
 }
 
 .cart .btn{
+  width: 250px;
   display: block;
   margin: 0 auto;
   padding: 20px 40px;
