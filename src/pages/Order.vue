@@ -95,7 +95,11 @@ export default {
     };
 
     const submit = () => {
-      axios.post("/api/orders", state.form).then(() => {
+      // 참조값 끊기 (state.form 가 변경되니까)
+      const args = JSON.parse(JSON.stringify(state.form));
+      args.items = JSON.stringify(state.items); // 값 넣기
+
+      axios.post("/api/orders", args).then(() => {
         console.log('success');
       })
     };
