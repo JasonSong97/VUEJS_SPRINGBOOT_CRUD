@@ -3,6 +3,7 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Cart from "@/pages/Cart";
 import Order from "@/pages/Order";
+import Orders from "@/pages/Orders";
 
 const routes = [
      // / 경로로 오면 Home으로 보냄
@@ -10,7 +11,8 @@ const routes = [
      // /login 경로로 오면 Login으로 보냄
      {path:'/login', component: Login},
      {path:'/cart', component: Cart},
-     {path: '/order', component: Order}
+     {path: '/order', component: Order},
+     {path: '/orders', component: Orders}
 ]
 
 // 라우터 생성
