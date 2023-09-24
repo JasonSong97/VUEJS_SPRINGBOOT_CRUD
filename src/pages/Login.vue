@@ -2,16 +2,18 @@
   <div class="form-signin w-100 m-auto">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="state.form.email">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" @keyup.enter="submit()"
+        v-model="state.form.email">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="state.form.password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()"
+        v-model="state.form.password">
       <label for="floatingPassword">Password</label>
     </div>
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me" @keyup.enter="submit()"> Remember me
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" @click="submit()">Sign in</button>
@@ -24,13 +26,13 @@
 import router from "@/scripts/router";
 import store from "@/scripts/store";
 import axios from "axios";
-import {reactive} from "vue";
+import { reactive } from "vue";
 
 export default {
-  setup(){
+  setup() {
     // 반응형 선언
     const state = reactive({
-      form :{
+      form: {
         email: "",
         password: ""
       }
@@ -44,14 +46,14 @@ export default {
         // 백엔드로 부터 받아온 데이터를 store(vuex)에 저장
         store.commit("setAccount", res.data);
         sessionStorage.setItem('id', res.data); // 세션스토리지에 데이터 저장
-        router.push({path:"/"});
+        router.push({ path: "/" });
         window.alert("로그인이 되었습니다.");
       }).catch(() => {
         window.alert("로그인정보가 존재하지 않습니다.");
       });
     }
 
-    return {state, submit}
+    return { state, submit }
   }
 }
 </script>
