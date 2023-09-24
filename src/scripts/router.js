@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router/dist/vue-router';
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Cart from "@/pages/Cart";
+import Order from "@/pages/Order";
 
 const routes = [
      // / 경로로 오면 Home으로 보냄
