@@ -19,15 +19,12 @@
                   :key="idx">
                   <div>
                     <h6 class="my-0">{{ i.name }}</h6>
-                    <small class="text-body-secondary">Brief description</small>
                   </div>
-                  <span class="text-body-secondary">$12</span>
+                  <span class="text-muted">
+                    {{ lib.getNumberFormatted(i.price - i.price * i.discountPer / 100) }}원
+                  </span>
                 </li>
               </ul>
-              <form class="card p-2">
-                <div class="input-group"><input type="text" class="form-control" placeholder="Promo code"><button
-                    type="submit" class="btn btn-secondary">Redeem</button></div>
-              </form>
             </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">주문자 정보</h4>
