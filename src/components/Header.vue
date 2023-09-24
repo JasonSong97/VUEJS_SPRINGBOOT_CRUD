@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-sm-4 py-4">
           <h4 class="text-white">사이트 맵</h4>
-          <ul class="list-unstyled">
+          <ul class="list-unstyled"><!--오른쪽 클릭시 나오는 것들-->
             <li>
               <router-link to="/" class="text-white">메인 화면</router-link> 
             </li>
@@ -40,10 +40,9 @@ export default {
   name: 'Header', // 컴포넌트 이름을 헤더로 지정
   setup() {
     const logout = () => {
-      store.commit("setAccount", 0);
+      store.commit("setAccount", 0); // setAccount 호출
       sessionStorage.removeItem('id'); // 세션스토리지 제거
       router.push({path:"/"});
-
     }
 
     return {logout};

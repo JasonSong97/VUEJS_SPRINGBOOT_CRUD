@@ -9,8 +9,11 @@ const routes = [
      {path:'/login', component: Login}
 ]
 
+// 라우터 생성
 const router = createRouter({
+     // 브라우저의 기록을 사용하여 라우팅을 관리
      history: createWebHistory(), 
+     // 위의 경로들
      routes
 })
 

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Footer' // 컴포넌트 이름을 Footer로 지정
+  name: 'Footer'
 }
 </script>
 

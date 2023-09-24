@@ -1,7 +1,7 @@
 <template>
-     <div class="card shadow-sm">
-          <span class="img" :style="{backgroundImage: `url(${item.imgPath})`}" />
-          <div class="card-body">
+<div class="card shadow-sm">
+     <span class="img" :style="{backgroundImage: `url(${item.imgPath})`}" />
+     <div class="card-body">
           <p class="card-text">
                <span>
                     {{ item.name }} &nbsp;
@@ -10,18 +10,18 @@
                     {{ item.discountPer }}%
                </span>
           </p>
-          <div class="d-flex justify-content-between align-items-center">
-               <button class="btn btn-primary">구입하기</button> 
-               <small class="price text-muted">
-                    {{ lib.getNumberFormatted(item.price) }}원
-               </small>
+     <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-primary">구입하기</button> 
+          <small class="price text-muted">
+               {{ lib.getNumberFormatted(item.price) }}원
+          </small>
 
-               <small class="real text-danger">
-                    {{ lib.getNumberFormatted(item.price - (item.price * item.discountPer / 100)) }}원
-               </small>
-          </div>
-          </div>
+          <small class="real text-danger">
+               {{ lib.getNumberFormatted(item.price - (item.price * item.discountPer / 100)) }}원
+          </small>
      </div>
+     </div>
+</div>
 </template>
 
 <script>

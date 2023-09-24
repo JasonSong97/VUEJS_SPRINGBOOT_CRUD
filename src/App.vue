@@ -22,14 +22,16 @@ export default {
   setup() {
     const check = () => {
       axios.get("/api/account/check").then(({data})=>{
+        // 통신 성공
         console.log(data);
-        store.commit("setAccount", data || 0);
+        store.commit("setAccount", data || 0); // Vue mutation 호출하는 것
       })
     };
 
-    const route = useRoute();
+    const route = useRoute(); // 사용하기 위해서 현재 라우터 정보 가져오는 것
     watch(route, ()=> {
-      check();
+      // route 객체를 감시하면서 변경마다 check() 콜백 함수를 실행
+      check(); 
     })
   }
 }
