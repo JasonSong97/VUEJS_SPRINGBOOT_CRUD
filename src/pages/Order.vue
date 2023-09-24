@@ -25,6 +25,9 @@
                   </span>
                 </li>
               </ul>
+              <h3 class="text-center total-price">
+                {{ lib.getNumberFormatted(computedPrice) }}원
+              </h3>
             </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">주문자 정보</h4>
@@ -59,7 +62,7 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 import axios from "axios";
 import lib from "@/scripts/lib";
 
@@ -74,11 +77,20 @@ export default {
         console.log(data);
         state.items = data;
       })
-    }
+    };
+
+    const computedPrice = computed(() => {
+      let result = 0;
+      for (let i of state.items) {
+        result += i.price - i.price * i.discountPer / 100;
+      }
+
+      return result;
+    })
 
     load();
 
-    return { state, lib }
+    return { state, lib, computedPrice }
   }
 }
 </script>
