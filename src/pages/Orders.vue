@@ -1,24 +1,25 @@
 <template>
   <div class="orders">
     <div class="container">
-      <table>
-        <thread>
+      <table class="table table-bordered">
+        <thead>
           <tr>
             <th>번호</th>
-            <th>주문자 이름</th>
+            <th>주문자명</th>
             <th>주소</th>
-            <th>결제수단</th>
-            <th>구입항목</th>
+            <th>결제 수단</th>
+            <th>구입 항목</th>
           </tr>
-        </thread>
+        </thead>
         <tbody>
-          <tr v-for="(o, idx) in state.orders" :key="idx">
-            <!--역순으로 출력-->
-            <tb>{{ state.orders.length - idx }}</tb>
-            <tb>{{ o.name }}</tb>
-            <tb>{{ o.address }}</tb>
-            <tb>{{ o.payment }}</tb>
-            <tb>{{ o.items }}</tb>
+          <tr v-for="(o, idx1) in state.orders" :key="idx1">
+            <td>{{ state.orders.length - idx1 }}</td>
+            <td>{{ o.name }}</td>
+            <td>{{ o.address }}</td>
+            <td>{{ o.payment }}</td>
+            <td>
+              <div v-for="(i, idx2) in o.items" :key="idx2">{{ i.name }}</div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -38,8 +39,15 @@ export default {
     })
 
     axios.get("/api/orders").then(({ data }) => {
-      console.log(data);
-      state.orders = data;
+      state.orders = [];
+
+      for (let d of data) {
+        if (d.items) {
+          d.items = JSON.parse(d.items);
+        }
+
+        state.orders.push(d);
+      }
     })
 
     return { state, lib, }
@@ -47,4 +55,12 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.table {
+  margin-top: 30px;
+}
+
+.table>tbody {
+  border-top: 1px solid #eee;
+}
+</style>
