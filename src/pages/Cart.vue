@@ -9,7 +9,11 @@
           <i class="fa fa-trash" @click="removeCart(i.id)"></i>
         </li>
       </ul>
-    </div>>
+
+      <button class="btn btn-primary">
+        구입하기
+      </button>
+    </div>
   </div>
 </template>
 
@@ -75,5 +79,12 @@ export default {
   font-size: 20px;
   margin-top: 65px;
   margin-right: 50px;
+}
+
+.cart .btn{
+  display: block;
+  margin: 0 auto;
+  padding: 20px 40px;
+  font-size: 20px;
 }
 </style>
