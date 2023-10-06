@@ -4,18 +4,25 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 py-4">
-            <h4 class="text-white">사이트 맵</h4>
+            <h4 class="text-white">목록</h4>
             <ul class="list-unstyled"><!--오른쪽 클릭시 나오는 것들-->
               <li>
                 <router-link to="/" class="text-white">메인 화면</router-link>
               </li>
+
               <li v-if="$store.state.account.id">
                 <router-link to="/orders" class="text-white">주문 내역</router-link>
               </li>
+
               <li>
                 <router-link to="/login" class="text-white" v-if="!$store.state.account.id">로그인</router-link>
                 <a to="/login" class="text-white" @click="logout()" v-else>로그아웃</a>
               </li>
+
+              <li>
+                <router-link to="/qna" class="text-white">QnA</router-link>
+              </li>
+
             </ul>
           </div>
         </div>

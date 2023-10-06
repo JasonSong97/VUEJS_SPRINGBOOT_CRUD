@@ -1,3 +1,5 @@
+import './assets/common.css'
+
 import { createApp } from 'vue'
 import store from "@/scripts/store"
 import router from "@/scripts/router";
